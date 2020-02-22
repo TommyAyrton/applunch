@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entrada: one
+  fondo: one
+  bebida: one
+  empleado: one
+  mesa: one
+  estado: 1
+
+two:
+  entrada: two
+  fondo: two
+  bebida: two
+  empleado: two
+  mesa: two
+  estado: 1

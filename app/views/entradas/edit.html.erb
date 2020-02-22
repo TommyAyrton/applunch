@@ -1,0 +1,19 @@
+<h1>Editar plato de entrada</h1>
+
+<%= render 'form', entrada: @entrada %>
+
+ <br>
+  
+    <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'Mostrar', @entrada, class:'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Volver', entradas_path, class:'nav-link' %>
+        </li>    
+      </ul>
+    </nav>
+
+<br>
+

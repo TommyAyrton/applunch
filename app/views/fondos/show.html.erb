@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <p>
+      <strong>Nombre:</strong>
+      <%= @fondo.nombre %>
+    </p>
+  </li>
+  <li class="list-group-item">
+    <p>
+      <strong>Descripcion:</strong>
+      <%= @fondo.descripcion %>
+    </p>
+  </li>
+  <li class="list-group-item">
+    <p>
+      <strong>Imagen:</strong>
+      <%= image_tag(@fondo.imagen.thumb.url, alt:'imagen') %>
+    </p>
+  </li>
+  <li class="list-group-item">
+    <p>
+      <strong>Estado:</strong>
+        <% if @fondo.estado == 1 %>
+          Activo
+          <% else %>
+          Inactivo
+        <% end %>
+    </p>
+  </li>
+</ul>
+
+<br>
+  
+    <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'Editar', edit_fondo_path(@fondo), class:'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Volver', fondos_path, class:'nav-link' %>
+        </li>    
+      </ul>
+    </nav>
+
+<br>
+

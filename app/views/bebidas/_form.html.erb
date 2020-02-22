@@ -1,0 +1,42 @@
+<div class="container">
+
+<%= form_with(model: bebida, local: true, html: {class:'was-validated'}) do |form| %>
+  <% if bebida.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bebida.errors.count, "error") %> prohibited this bebida from being saved:</h2>
+
+      <ul>
+        <% bebida.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, class:'form-control', :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion, class:'form-control', :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imagen %>
+    <%= form.file_field :imagen %>
+  </div>
+
+  <div class="field">
+    <%= form.radio_button :estado, 1 %><label> Activo</label><br />
+    <%= form.radio_button :estado, 0, :checked => true %><label> Inactivo</label><br />
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Guardar', class:'btn btn-primary' %>
+  </div>
+
+<% end %>
+
+</div>

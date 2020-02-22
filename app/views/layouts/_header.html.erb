@@ -1,0 +1,39 @@
+
+<header class="navbar navbar-expand-lg navbar-dark site_navbar bg-dark site-navbar-light" id="site-navbar">
+  <div class="container">
+        <%= link_to  "App Lunch", root_path, class:"navbar-brand" %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#site-nav" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <<div class="collapse navbar-collapse" id="site-nav">
+          <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><%= link_to  "Menu", root_path, class:"nav-link" %></li>
+          <% if user_signed_in? %>           
+            
+            <% if current_user.rol == "cocinero" %>
+              <li class="nav-item"><%= link_to "Plato de entradas", entradas_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to  "Plato de fondo", fondos_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to  "Bebidas", bebidas_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to  "Pedidos", pedidos_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to  "Mesas", mesas_path, class:"nav-link" %></li>                          
+            <% end %>                  
+            
+            
+            <% if current_user.rol == 'mozo' %>
+              <li class="nav-item"><%= link_to  "Pedidos", pedidos_path, class:"nav-link" %></li>
+            <% end %>            
+
+            <li class="nav-item"><%= link_to 'Edit profile', edit_user_registration_path, class:"nav-link" %></li>
+            <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class:"nav-link" %></li>
+
+          <% else %>
+            
+            <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class:"nav-link"  %> |
+            <li class="nav-item"><%= link_to "Login", new_user_session_path, class:"nav-link"  %>
+
+          <% end %>                     
+          </ul>
+        </div>
+  </div>
+</header>

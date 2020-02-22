@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <h2>Fondos</h2>
+  <p>Lista de los platos de fondo:</p>
+
+  <br>
+  
+    <%= link_to 'Agregar plato de fondo', new_fondo_path, class:'btn btn-primary btn-block' %>
+  
+  <br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Imagen</th>
+          <th>Estado</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% contador = 0 %>
+
+        <% @fondos.each do |fondo| %>
+          <tr>
+            <td><%= fondo.nombre %></td>
+            <td><%= fondo.descripcion %></td>
+            <td><%= image_tag(fondo.imagen.medium.url, alt:'imagen') %></td>
+            
+            <% if fondo.estado == 1 %>
+              <td>Activo</td>
+              <% contador = contador + 1 %>
+              <% else %>
+              <td>Inactivo</td>
+            <% end %>        
+            
+            <td><%= link_to 'Show', fondo %></td>
+            <td><%= link_to 'Edit', edit_fondo_path(fondo) %></td>
+            <td><%= link_to 'Destroy', fondo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <p>Platos activos: <%= contador %></p>
+    
+    <% if contador > 2 %>
+
+      <script>
+        $(document).ready(function(){
+        $("#myModal").modal("show");
+        });
+      </script>
+        
+    <% end %>
+    
+    
+
+</div>

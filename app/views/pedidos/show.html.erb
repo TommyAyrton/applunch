@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Entrada:</strong>
+  <%= @pedido.entrada_id %>
+</p>
+
+<p>
+  <strong>Fondo:</strong>
+  <%= @pedido.fondo_id %>
+</p>
+
+<p>
+  <strong>Bebida:</strong>
+  <%= @pedido.bebida_id %>
+</p>
+
+<p>
+  <strong>Empleado:</strong>
+  <%= @pedido.empleado_id %>
+</p>
+
+<p>
+  <strong>Mesa:</strong>
+  <%= @pedido.mesa_id %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @pedido.estado %>
+</p>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
+<%= link_to 'Back', pedidos_path %>
